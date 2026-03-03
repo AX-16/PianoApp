@@ -187,6 +187,25 @@
     font-size: 15px;
 }
 
+.manualBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.checkBox {
+    padding: 20px 20px;
+    white-space: nowrap;
+    background-color: var(--color-panel);
+    border: 2px solid var(--color-border-accent);
+    border-radius: 15px;
+}
+
+.checkBox input {
+    scale: 1.5;
+}
+
 .expandLink {
     text-decoration: none;
     background-color: var( --color-panel-inactive);

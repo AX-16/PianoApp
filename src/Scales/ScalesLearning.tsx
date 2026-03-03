@@ -49,6 +49,7 @@ function ScalesLearning() {
     const [noteName, setNoteName] = useState<NoteNameState>('on');
     const [keyStates, setKeyStates] = useState<Record<string, KeyState>>({});
     const [expandSelectedScales, setExpandSelectedScales] = useState(false);
+    const [keepCurrentScale, setKeepCurrentScale] = useState(false);
 
     const scaleNotes = currentScaleSelected.notes.map(n =>
         normalizeInputNote(n)
@@ -84,7 +85,6 @@ function ScalesLearning() {
     function handleNoteOff() {
         const expectedNotes: PitchClass[] = currentScaleSelected.notes.map(note => normalizeInputNote(note));
 
-        // don’t validate too early
         if (pressedKeyList.length < expectedNotes.length) return;
 
         const isCorrect = expectedNotes.every(note =>
@@ -95,16 +95,19 @@ function ScalesLearning() {
             setScaleFinished(true);
             console.log('Correct scale!');
 
-            // reset for next attempt
             setPressedKeyList([]);
 
-            // optional: pick a new random scale
             setTimeout(() => {
-                setCurrentScaleSelected(
-                    scalesAvailable[
-                    Math.floor(Math.random() * scalesAvailable.length)
-                    ]
-                );
+                if(!keepCurrentScale) {
+                    setCurrentScaleSelected(
+                        scalesAvailable[
+                        Math.floor(Math.random() * scalesAvailable.length)
+                        ]
+                    );
+                } else {
+                    setCurrentScaleSelected(currentScaleSelected);
+                }
+
                 setScaleFinished(false);
                 setKeyStates({});
                 return;
@@ -204,15 +207,22 @@ function ScalesLearning() {
         </div>
 
         <div className={styles.optionsContainer}>
-            <div className={styles.option}>
-                <label>Manual Scale Selection</label>
-                <select value={scalesAvailable.indexOf(currentScaleSelected)}
-                    onChange={(e) => overrideScale(Number(e.target.value))}>
-
-                    {scalesAvailable.map((scale, index) => {
-                        return <option key={`${scale.scale}${scale.scaleType}`} value={index}>{scale.scale} {scale.scaleType}</option>
-                    })}
-                </select>
+            <div className={styles.manualBox}>
+                <div className={styles.option}>
+                    <label>Manual Scale Selection</label>
+                    <select
+                        value={scalesAvailable.indexOf(currentScaleSelected)}
+                        onChange={(e) => overrideScale(Number(e.target.value))}
+                    >
+                        {scalesAvailable.map((scale, index) => {
+                            return <option key={`${scale.scale}${scale.scaleType}`} value={index}>{scale.scale} {scale.scaleType}</option>
+                        })}
+                    </select>
+                </div>
+                <div className={styles.checkBox}>
+                    <label style={{ marginRight: '10px'}}>Keep scale?</label>
+                    <input type="checkbox" onClick={() => setKeepCurrentScale(!keepCurrentScale)}/>
+                </div>
             </div>
             <div className={styles.option}>
                 <label>Note names</label>

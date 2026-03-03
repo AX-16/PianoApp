@@ -75,6 +75,7 @@ function ScalesPractice() {
     const [timeComparison, setTimeComparison] = useState<TimeComparison>(null);
     const [roundComplete, setRoundComplete] = useState(false);
     const [lastRoundScore, setLastRoundScore] = useState<number>(0);
+    const [roundOrder, setRoundOrder] = useState<Scale[]>([]);
 
     const startTimerRef = useRef(0);
     const intervalRef = useRef<number | null>(null);
@@ -85,8 +86,26 @@ function ScalesPractice() {
     );
 
     const maxScore = rounds * 7;
-    const percentage =
-        maxScore > 0 ? ((totalScore * 100) / maxScore).toFixed(2) : "0.00";
+    const percentage = maxScore > 0 ? ((totalScore * 100) / maxScore).toFixed(2) : "0.00";
+
+    function generateRoundOrder(): Scale[] {
+        const pool: Scale[] = [];
+
+        for (let i = 0; i < rounds; i++) {
+            pool.push(scalesAvailable[i % scalesAvailable.length]);
+        }
+
+        return shuffleArray(pool);
+    }
+
+    function shuffleArray<T>(array: T[]): T[] {
+        const newArr = [...array];
+        for (let i = newArr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+        }
+        return newArr;
+    }
 
     useEffect(() => {
         if (!timerRunning) return;
@@ -167,11 +186,9 @@ function ScalesPractice() {
         setLastRoundScore(correctCount);
 
         setTimeout(() => {
-            setCurrentScaleSelected(
-                scalesAvailable[
-                Math.floor(Math.random() * scalesAvailable.length)
-                ]
-            );
+            if (roundOrder[roundNumber]) {
+                setCurrentScaleSelected(roundOrder[roundNumber]);
+            }
 
             // increase score counter on every correct note from scale, 7 max, 0 minimum
 
@@ -272,6 +289,10 @@ function ScalesPractice() {
                     setNoteCounter(0);
                     setResults([]);
                     setTimerList([]);
+
+                    const newOrder = generateRoundOrder();
+                    setRoundOrder(newOrder);
+                    setCurrentScaleSelected(newOrder[0]);
                     return 0;
                 }
 
@@ -455,7 +476,7 @@ function ScalesPractice() {
         {currentGamePhase === 'Results' && (
             <>
                 <p className={styles.evalInfo}>EVALUATION</p>
-                <p>Mode: <span className={styles.underline}>{difficulty.easy ? 'Easy' : 'HARD'}</span></p>
+                <p>Mode: <span className={styles.underline}>{difficulty === 'easy' ? 'Easy' : 'HARD'}</span></p>
                 <div className={styles.evalResults}>
                     <div className={styles.timer}>
                         <span>Time:</span><span>{sumTimerList()}</span>

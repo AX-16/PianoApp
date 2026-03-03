@@ -30,8 +30,8 @@ function App() {
                                 <Link to="/scales" className={styles.link}>Scales</Link>
                             </p>
                         </div>
-
-                        <div className={styles.info}>MMXXVI - Ver 1.0 - <a href='https://github.com/AX-16' target='_blank' className={styles.linkGit}>Nik</a></div>
+                        {/* x.y.z -> x => new game mode, y => overhaul or update of existing game mode, z => small tweaks, bug fixes, etc*/}
+                        <div className={styles.info}>MMXXVI - Ver 1.0.1 - <a href='https://github.com/AX-16' target='_blank' className={styles.linkGit}>Nik</a></div>
                     </div>
                 }
             />
