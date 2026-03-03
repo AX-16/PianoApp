@@ -1,0 +1,5 @@
+body {
+  background-color: var(--color-bg-2nd);
+  font-family: monospace;
+  font-size: 25px;
+}

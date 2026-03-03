@@ -1,0 +1,99 @@
+.piano {
+    display: flex;
+    background-color: var(--color-panel);
+    border: 2px solid var(--color-border-accent);
+    padding: 60px;
+    width: max-content;
+}
+
+.keyboard {
+    position: relative;
+    display: flex;
+    color: var(--color-piano-white-text);
+    text-shadow:
+        0 0 4px var(--color-border-accent),
+        0 0 8px var(--color-border-accent),
+        0 0 12px var(--color-border-accent);
+    user-select: none;
+}
+
+.whiteKeys {
+    display: flex;
+}
+
+.white {
+    width: 80px;
+    height: 360px;
+    background-color: var(--color-piano-white);
+    border: 1px solid var(--color-border-main);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.whiteNone:hover {
+    background-color: var(--color-piano-white-hover);
+}
+
+.whiteNone:active {
+    background-color: var(--color-piano-white-active);
+}
+
+.blackNone:hover {
+    background-color: var(--color-piano-black-hover);
+}
+
+.blackNone:active {
+    background-color: var(--color-piano-black-hover);
+}
+
+.correctKey {
+    background-color: var(--color-piano-correct) !important;
+}
+
+.incorrectKey {
+    background-color: var(--color-piano-incorrect) !important;
+}
+
+.highlights {
+    background-color: var(--color-piano-highlight) !important;
+}
+
+/* temp color for v1 */
+.pressedKey {
+    background-color: rgb(255, 166, 0) !important;
+}
+
+.white:hover {
+    background-color: var(--color-piano-white-hover);
+    cursor: pointer;
+}
+
+.white:active {
+    background-color: var(--color-piano-white-active);
+}
+
+.black {
+    position: absolute;
+    width: 60px;
+    height: 210px;
+    background-color: var(--color-piano-black);
+    border: 2px solid var(--color-piano-border-black-key);
+    color: var(--color-piano-black-text);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    z-index: 2;
+}
+
+.black:hover {
+    background-color: var(--color-piano-black-hover);
+    cursor: pointer;
+}
+
+.black:active {
+    background-color: var(--color-piano-black-active);
+}

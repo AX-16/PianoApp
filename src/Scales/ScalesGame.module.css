@@ -1,0 +1,374 @@
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pageContainer {
+    min-height: 98vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    border: 2px solid var(--color-border-accent);
+    padding: 20px;
+    border-radius: 20px;
+    font-style: italic;
+    background-color: var(--color-panel);
+}
+
+.scaleDescription {
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.scaleListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.columnsWrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 35px 0px 100px;
+}
+
+.columnDivider {
+    width: 2px;
+    background-color: var(--color-border-accent);
+    align-self: stretch;
+}
+
+.listItem::marker {
+    color: #808080;
+}
+
+.listItem {
+    list-style: upper-roman;
+}
+
+.beginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prepContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(132, 132, 132);
+    cursor: pointer;
+    transition: color 0.3s ease, border 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    border: solid 2px rgba(255, 0, 0, 0);
+    left: 15px;
+    bottom: 15px;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 15px;
+    align-self: flex-start;
+    width: fit-content;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.link:hover {
+    border: 2px solid var(--color-border-accent);
+    color: white;
+    animation: glowBreath 2s ease-in-out infinite;
+    background-color: var(--color-panel);
+}
+
+.link:active:hover {
+    border-color: var(--color-border-accent-inactive);
+    background-color: var(--color-panel-inactive);
+}
+
+@keyframes glowBreath {
+    0% {
+        box-shadow:
+            0 0 5px var(--color-border-accent),
+            0 0 10px var(--color-border-accent);
+    }
+    50% {
+        box-shadow:
+            0 0 15px var(--color-border-accent),
+            0 0 30px var(--color-border-accent);
+    }
+    100% {
+        box-shadow:
+            0 0 5px var(--color-border-accent),
+            0 0 10px var(--color-border-accent);
+    }
+}
+
+.linkButton {
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: solid 2px var(--color-border-accent);
+    background-color: var(--color-panel);
+    color: white;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.linkButton:hover {
+    animation: glowBreath 2s ease-in-out infinite;
+}
+
+.linkButton:active:hover {
+    border-color: var(--color-border-accent-inactive);
+    background-color: var(--color-panel-inactive);
+}
+
+.scaleName {
+    border: 2px solid var(--color-border-accent);
+    border-radius: 10px;
+    font-weight: bold;
+    font-style: italic;
+    background-color: var(--color-panel);
+    padding: 10px;
+}
+
+.currentContainer {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.underline {
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.finishedContainer {
+    margin: 20px;
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.optionsContainer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.option {
+    border: 2px solid var(--color-border-accent);
+    background-color: var(--color-panel);
+    padding: 15px 20px;
+    border-radius: 15px;
+    gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option select {
+    min-width: 120px;
+    padding: 8px;
+    font-size: 15px;
+}
+
+.expandLink {
+    text-decoration: none;
+    background-color: var( --color-panel-inactive);
+    cursor: pointer;
+    transition: color 0.3s ease, border 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    border: solid 2px var(--color-border-accent-inactive);
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 15px;
+    width: fit-content;
+    margin: 30px;
+}
+
+.expandLink:hover {
+    border: 2px solid var(--color-border-accent);
+    color: white;
+    animation: glowBreath 2s ease-in-out infinite;
+    background-color: var(--color-panel);
+}
+
+.roundInfoNumber {
+    color: var(--color-border-accent);
+    font-weight: bold;    
+}
+
+.roundInfo {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+}
+
+.currentScale {
+    display: flex;
+    margin: 20px;
+}
+
+.currentScaleName {
+    font-size: 40px;
+    background-color: var(--color-panel);
+    border: 2px solid var(--color-border-accent);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.timerContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-right: solid 2px var(--color-border-accent);
+    padding-right: 20px;
+}
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px;
+}
+
+.timer:not(:last-child) {
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.timerFaster {
+    color: greenyellow;
+}
+
+.timerSlower {
+    color: red;
+}
+
+.timerAndResult{
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.resultWindow {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--color-border-accent);
+    background-color: var(--color-panel);
+    margin: 10px;
+    border-radius: 15px;
+    gap: 20px;
+    min-width: 180px;
+    min-height: 70px;
+    justify-content: center;
+}
+
+.resultWindowRating {
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.evalInfo {
+    font-size: 30px;
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.evalResults {
+    display: flex;
+    flex-direction: column;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resultsTable {
+    border: 2px solid var(--color-border-accent);
+    padding: 25px;
+    background-color: var(--color-panel);
+    color: black;
+    border-radius: 30px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 7px 5px;
+}
+
+.resultsTable th {
+    background-color: var(--color-border-accent);
+    border-radius: 7px;
+    font-weight: bold;;
+}
+
+.resultsTable td {
+    background-color: white;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.resultsTable th,
+.resultsTable td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.notesWrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    gap: 5px;
+}
+
+.tIndex {
+    display: flex;
+    justify-content: center;
+}
+
+.correctNote {
+    background-color: yellowgreen;
+}
+
+.incorrectNote{
+    background-color: red;
+}
+
+.noteItem {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.noteItem:not(:first-child) {
+    border-left: 5px solid rgb(149, 0, 255);
+}
+
+.correctNote {
+    background-color: yellowgreen;
+}
+
+.incorrectNote {
+    background-color: red;
+}
+
+.missingNote {
+    background-color: yellow;
+}

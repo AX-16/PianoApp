@@ -1,0 +1,227 @@
+.scaleContainer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+}
+
+.scaleContainer table {
+    border: 2px solid var(--color-border-accent);
+    background-color: var(--color-panel);
+    padding: 10px;
+}
+
+.scaleContainer th {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.scaleActive {
+    background-color: var(--color-active-scale);
+}
+
+.scaleActive:hover {
+    background-color: var(--color-active-scale-hover);
+}
+
+.scaleInactive {
+    background-color: var(--color-inactive-scale);
+}
+
+.scaleInactive:hover {
+    background-color: var(--color-inactive-scale-hover);
+}
+
+.modeContainer {
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modeToggle {
+    display: flex;
+}
+
+.modeToggle button {
+    padding: 60px 240px 60px 240px;
+    margin: 10px;
+    font-size: 50px;
+    font-family: monospace;
+    font-style: italic;
+    transition: 0.5s;
+}
+
+.modeActive {
+    color: white;
+    background-color: rgb(166, 0, 0);
+    border: solid 2px var(--color-border-accent);
+}
+
+.modeInactive {
+    background-color: var(--color-panel-inactive);
+    border: solid 2px var(--color-border-accent-inactive);
+}
+
+.modeInactive:hover {
+    background-color: var(--color-panel-inactive-hover);
+}
+
+.modeSubtext {
+    margin-top: 20px;
+    border-bottom: solid 2px var(--color-border-accent);
+}
+
+.modeSubtext p {
+    margin: 0
+}
+
+.description {
+    color: white;
+    font-size: 25px;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(132, 132, 132);
+    cursor: pointer;
+    transition: color 0.3s ease, border 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    border: solid 2px rgba(255, 0, 0, 0);
+    left: 15px;
+    bottom: 15px;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 15px;
+    align-self: flex-start;
+    width: fit-content;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.link:hover {
+    border: 2px solid var(--color-border-accent);
+    color: white;
+    animation: glowBreath 2s ease-in-out infinite;
+    background-color: var(--color-panel);
+}
+
+.link:active:hover {
+    border-color: var(--color-border-accent-inactive);
+    background-color: var(--color-panel-inactive);
+}
+
+@keyframes glowBreath {
+    0% {
+        box-shadow:
+            0 0 5px var(--color-border-accent),
+            0 0 10px var(--color-border-accent);
+    }
+    50% {
+        box-shadow:
+            0 0 15px var(--color-border-accent),
+            0 0 30px var(--color-border-accent);
+    }
+    100% {
+        box-shadow:
+            0 0 5px var(--color-border-accent),
+            0 0 10px var(--color-border-accent);
+    }
+}
+
+.title {
+    border: 2px solid var(--color-border-accent);
+    padding: 20px;
+    border-radius: 20px;
+    font-style: italic;
+    background-color: var(--color-panel);
+}
+
+.titleFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.underTitle {
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.beginContainer {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.linkButton {
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: solid 2px var(--color-border-accent);
+    background-color: var(--color-panel);
+    color: white;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.linkButton:not(:disabled):hover {
+    animation: glowBreath 2s ease-in-out infinite;
+}
+
+.linkButton:not(:disabled):hover:active  {
+    background-color: var(--color-panel-inactive);
+}
+
+.linkButton:disabled {
+    background-color: var(--color-panel-inactive);
+    border: solid 2px var(--color-border-accent-inactive);
+}
+
+.trainingOptions {
+    margin-top: 20px;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+    background-color: var(--color-panel);
+    border: solid 2px var(--color-border-accent);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.difficultyOptions {
+    display: flex;
+    gap: 20px;
+}
+
+.roundOptions {
+    display: flex;
+    gap: 20px;
+}
+
+.diffSettings {
+    font-size: 20px;
+}
+
+.roundSettings {
+    font-size: 20px;
+}
+
+.page {
+    min-height: 98vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modeContainer {
+    flex: 1;
+}

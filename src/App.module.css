@@ -1,0 +1,90 @@
+body {
+    font-family: garamond;
+}
+
+.title {
+    display: flex;
+    border: 2px solid var(--color-border-accent);
+    padding: 20px;
+    border-radius: 20px;
+    font-style: italic;
+    background-color: var(--color-panel);
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(132, 132, 132);
+    cursor: pointer;
+    transition: color 0.3s ease, border 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    padding: 20px;
+    font-size: 50px;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.link:hover {
+    border: 2px solid var(--color-border-accent);
+    color: white;
+    animation: glowBreath 2s ease-in-out infinite;
+    background-color: var(--color-panel);
+}
+
+.link:active:hover {
+    border-color: var(--color-border-accent-inactive);
+    background-color: var(--color-panel-inactive);
+}
+
+@keyframes glowBreath {
+    0% {
+        box-shadow:
+            0 0 5px var(--color-border-accent),
+            0 0 10px var(--color-border-accent);
+    }
+    50% {
+        box-shadow:
+            0 0 15px var(--color-border-accent),
+            0 0 30px var(--color-border-accent);
+    }
+    100% {
+        box-shadow:
+            0 0 5px var(--color-border-accent),
+            0 0 10px var(--color-border-accent);
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gamesContainer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.underTitle {
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.info {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.linkGit {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.linkGit:hover {
+    color: gold;
+    text-decoration: underline;
+}

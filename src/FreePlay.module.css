@@ -1,0 +1,184 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 40px;
+    border-radius: 15px;
+}
+
+.pianoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.logList {
+    border: 2px solid var(--color-border-accent);
+    background-color: var(--color-panel);
+    margin-right: 20px;
+}
+
+.freeplayText {
+    border: 2px solid var(--color-border-accent);
+    padding: 20px;
+    border-radius: 20px;
+    font-style: italic;
+    background-color: var(--color-panel);
+}
+
+.controls {
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid var(--color-border-accent);
+    display: flex;
+    background-color: var(--color-panel);
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.octButton {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: black;
+    border: color;
+}
+
+.octCount {
+    display: inline-block;
+    padding: 0px 20px 0px 20px;
+    text-align: center;
+    min-width: 130px;
+    font-variant-numeric: tabular-nums;
+}
+
+.selectBox {
+    margin-left: 10px;
+}
+
+.controlBox {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logTitle {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--color-border-accent);
+}
+
+.noteList {
+    list-style-type: none;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.historyList {
+    background-color: var(--color-panel);
+    border: 2px solid var(--color-border-accent);
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.noteListHistory {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0px;
+    display: grid;
+    flex: 100%;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 6px;
+}
+
+.noteListHistory li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    font-variant-numeric: tabular-nums;
+    padding: 2px 0;
+}
+
+.noteListHistory li span:last-child {
+    border-left: 1px solid var(--color-border-accent);
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.historyList::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    pointer-events: none;
+    background: linear-gradient(
+        to top,
+        var(--color-panel),
+        transparent
+    )
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(132, 132, 132);
+    cursor: pointer;
+    transition: color 0.3s ease, border 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    border: solid 2px rgba(0, 0, 0, 0);
+    left: 15px;
+    bottom: 15px;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.link:hover {
+    border: 2px solid var(--color-border-accent);
+    color: white;
+    animation: glowBreath 2s ease-in-out infinite;
+    background-color: var(--color-panel);
+}
+
+.link:active:hover {
+    border-color: var(--color-border-accent-inactive);
+    background-color: var(--color-panel-inactive);
+}
+
+@keyframes glowBreath {
+    0% {
+        box-shadow:
+            0 0 5px var(--color-border-accent),
+            0 0 10px var(--color-border-accent);
+    }
+    50% {
+        box-shadow:
+            0 0 15px var(--color-border-accent),
+            0 0 30px var(--color-border-accent);
+    }
+    100% {
+        box-shadow:
+            0 0 5px var(--color-border-accent),
+            0 0 10px var(--color-border-accent);
+    }
+}
